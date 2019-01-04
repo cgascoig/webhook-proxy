@@ -72,12 +72,12 @@ def lambda_handler(event, context):
     log("Disconnect websocket connection", DEBUG, event)
     connectionId = getConnectionId(event)
 
-	if connectionId is not None:
-		# Add connection ID to DB
-		table = getDDBTable(os.environ['TABLE_NAME'])
-		table.delete_item(Key={
-			'connectionId': connectionId
-		})
+     if connectionId is not None:
+          # Add connection ID to DB
+          table = getDDBTable(os.environ['TABLE_NAME'])
+          table.delete_item(Key={
+               'connectionId': connectionId
+          })
 
     return {
         "statusCode": 200,
