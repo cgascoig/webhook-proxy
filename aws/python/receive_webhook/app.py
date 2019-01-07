@@ -99,7 +99,8 @@ def lambda_handler(event, context):
                 Data=json.dumps({
                     "action": "received_webhook",
                     "subscriptionId": subscriptionId,
-                    "body": event['body']
+                    "body": event['body'],
+                    "contentType": event["headers"].get("content-type", "application/json"),
                 }),
                 ConnectionId=con['connectionId']
             )
