@@ -24,7 +24,7 @@ Resources:
     SharedPythonLayer:
         Type: AWS::Serverless::LayerVersion
         Properties:
-            LayerName: SharedPythonLayer
+            LayerName: !Sub 'SharedPythonLayer-${AWS::StackName}'
             Description: Python code shared across functions
             ContentUri: python/shared/
             CompatibleRuntimes:
@@ -128,7 +128,7 @@ Resources:
             BillingMode: PAY_PER_REQUEST
             SSESpecification:
                 SSEEnabled: True
-            TableName: !Ref TableName
+            TableName: !Sub '${TableName}-${AWS::StackName}'
 
             
 
