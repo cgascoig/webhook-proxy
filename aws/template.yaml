@@ -79,6 +79,8 @@ Resources:
             -   DynamoDBCrudPolicy:
                     TableName: !Ref TableName
             -   Statement:
+                # This is only required because the above DynamoDBCrudPolicy doesn't currently include access to the DynamoDB global secondary indexes (GSI). 
+                # See https://github.com/awslabs/serverless-application-model/issues/280
                 -   Effect: Allow
                     Action:
                     - "dynamodb:GetItem"
