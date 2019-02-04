@@ -133,6 +133,9 @@ Resources:
             
 
 Outputs:
-    OnConnectFunction:
+    OnDisconnectFunction:
+        Description: "Disconnect Lambda Function ARN"
+        Value: !GetAtt OnDisconnectFunction.Arn
+    SubscribeFunction:
         Description: "Subscribe Lambda Function ARN"
         Value: !GetAtt SubscribeFunction.Arn
